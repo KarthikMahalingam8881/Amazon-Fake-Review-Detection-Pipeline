@@ -51,7 +51,6 @@ This project builds a scalable and modular data pipeline to detect fake or suspi
 ## 🧪 How to Run (Simplified)
 
 ### 1. 📦 NLP Step Locally (Test It)
-```bash
 # Build the container
 docker build -t nlp-review .
 
