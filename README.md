@@ -50,15 +50,21 @@ This project builds a scalable and modular data pipeline to detect fake or suspi
 ---
 
 ## 🗂️ Folder Structure
+
 📁 dags/
+
 └── s3_glue_nlp_pipeline.py # Airflow DAG to orchestrate NLP job
 
 📁 nlp_pipeline/
+
 ├── nlp_processing.py # Python script for sentiment analysis
+
 ├── Dockerfile # Container for running NLP logic
+
 └── requirements.txt # Python dependencies
 
-📁 airflow-docker/ (optional)
+📁 airflow-docker/ 
+
 └── docker-compose.yaml # Local Airflow setup
 
 ---
