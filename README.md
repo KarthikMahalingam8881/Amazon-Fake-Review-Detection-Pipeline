@@ -92,7 +92,6 @@ Glue Job must be created on AWS Console manually, with the PySpark script pointi
 
 AWS credentials should be shared via environment variables or .env (DO NOT commit to GitHub)
 
-Sample .env.example can be added for format reference
 
 
 
