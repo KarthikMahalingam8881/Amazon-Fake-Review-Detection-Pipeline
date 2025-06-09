@@ -1,5 +1,5 @@
 # Amazon-Fake-Review-Detection-Pipeline
-This project builds a scalable and modular data pipeline to detect fake or suspicious Amazon product reviews using NLP techniques. The pipeline uses AWS Glue for data cleaning and Apache Airflow for orchestration. It processes data stored in Amazon S3 and outputs enriched sentiment insights back into S3.
+This project implements a scalable, modular data pipeline to detect fake or suspicious Amazon product reviews using NLP techniques. It leverages AWS Glue for ETL, Amazon S3 for storage, Docker for containerized sentiment analysis, and Apache Airflow for orchestration.
 
 ---
 
@@ -41,31 +41,33 @@ This project builds a scalable and modular data pipeline to detect fake or suspi
 ## ⚙️ Tools & Technologies
 
 - **Amazon S3** – Raw + processed data storage
-- **AWS Glue** – Schema inference + PySpark ETL
+- **AWS Glue** – Schema inference & PySpark-based ETL
 - **Apache Airflow** – Workflow orchestration
-- **Docker** – NLP step containerization
-- **Boto3** – Access S3 via Python
-- **spaCy / TextBlob** – Sentiment analysis
+- **Docker** – Containerized NLP step
+- **spaCy** / **TextBlob** – Sentiment analysis
+- **Boto3** – Python SDK for AWS
 
 ---
 
 ## 🗂️ Folder Structure
 
-📁 dags/
+airflow-docker/
 
-└── s3_glue_nlp_pipeline.py # Airflow DAG to orchestrate NLP job
+├── dags/
 
-📁 nlp_pipeline/
+│ └── s3_glue_nlp_pipeline.py # Airflow DAG for orchestrating NLP task
 
-├── nlp_processing.py # Python script for sentiment analysis
+├── nlp_job/
 
-├── Dockerfile # Container for running NLP logic
+│ ├── nlp_processing.py # Python script for sentiment tagging
 
-└── requirements.txt # Python dependencies
+│ ├── Dockerfile # NLP Docker image
 
-📁 airflow-docker/ 
+│ └── requirements.txt # Python dependencies
 
-└── docker-compose.yaml # Local Airflow setup
+├── docker-compose.yaml # Local Airflow setup
+
+└── config/, plugins/, logs/ # Support files and outputs
 
 ---
 
@@ -73,17 +75,17 @@ This project builds a scalable and modular data pipeline to detect fake or suspi
 
 ### 1. 📦 NLP Step Locally (Test It)
 # Build the container
-docker build -t nlp-review .
+docker build -t nlp-review ./nlp_job
 
-# Run it
+# Run it (pass AWS credentials via env file)
 docker run --rm --env-file ../aws.env nlp-review
 
-## 🛰 Orchestrate via Airflow
-Add s3_glue_nlp_pipeline.py to your dags/ folder
+## Run Full Pipeline via Airflow
+* Add s3_glue_nlp_pipeline.py to your Airflow dags/ folder
 
-Use DockerOperator or PythonOperator to run the NLP container
+* Use DockerOperator or PythonOperator to run the NLP container
 
-Start your Airflow UI and trigger the DAG
+* Start the Airflow UI and trigger the DAG
 
 ## 📌 Notes
 Glue Job must be created on AWS Console manually, with the PySpark script pointing to the raw data
