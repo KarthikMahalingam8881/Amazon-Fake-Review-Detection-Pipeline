@@ -1,6 +1,0 @@
-boto3
-textblob
-nltk
-s3fs
-pyarrow
-pandas
