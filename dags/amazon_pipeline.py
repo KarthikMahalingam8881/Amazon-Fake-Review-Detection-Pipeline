@@ -16,7 +16,7 @@ default_args = {
     'retries': 2,
     'retry_delay': timedelta(minutes=5),
     'email_on_failure': True,
-    'email': ['kmahali2@asu.edu']
+    'email': [os.environ.get('ALERT_EMAIL')]
 }
 
 # Define the DAG
