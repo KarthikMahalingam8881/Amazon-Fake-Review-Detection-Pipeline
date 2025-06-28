@@ -4,37 +4,8 @@ This project implements a scalable, modular data pipeline to detect fake or susp
 ---
 
 ## 🚀 Pipeline Overview
-[Raw JSON Reviews in S3]
+![image](https://github.com/user-attachments/assets/3df50fe3-b444-4538-8874-4be06aac358f)
 
-
-⬇️
-
-
-[Glue Crawler] — infers schema
-
-
-⬇️
-
-
-[Glue Spark ETL Job] — cleans and transforms raw data
-
-
-⬇️
-
-
-[Cleaned Parquet in S3 (/processed/year=2023)]
-
-
-⬇️
-
-
-[Dockerized NLP Script] — sentiment analysis
-
-
-⬇️
-
-
-[NLP Output to S3 (/processed/nlp/year=2023/)]
 
 ---
 
