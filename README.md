@@ -1,8 +1,9 @@
 # Amazon-Fake-Review-Detection-Pipeline
 This project implements a scalable, modular data pipeline to detect fake or suspicious Amazon product reviews using NLP techniques. It leverages AWS Glue for ETL, Amazon S3 for storage, Docker for containerized sentiment analysis, and Apache Airflow for orchestration.
 
----
-
+----
+ [Read the full project breakdown on Medium](https://medium.com/@kmahali2/detecting-fake-amazon-reviews-using-a-scalable-aws-data-pipeline-s3-glue-airflow-nlp-0157143206e1)
+----
 ## 🚀 Pipeline Overview
 ![image](https://github.com/user-attachments/assets/3df50fe3-b444-4538-8874-4be06aac358f)
 
